@@ -1,6 +1,4 @@
-package ua.opnu;
-
-import ua.opnu.view.DrawFrame;
+package ua.opnu.view;
 
 import javax.swing.*;
 
@@ -13,3 +11,5 @@ public class Main {
         SwingUtilities.invokeLater(() -> new DrawFrame("Програма Draw"));
     }
 }
+
+

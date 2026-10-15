@@ -44,8 +44,16 @@ public class MainFrame extends JFrame implements ActionListener {
         // випадковим чином
 
         int random = new Random().nextInt(3);
-
-        return new GameShape(); // TODO: змініть на об'єкт потрібної фігури
+ // TODO: змініть на об'єкт потрібної фігури
+        if (random == 0){
+            return new Rock();
+        }
+        else if (random == 1){
+            return new Paper();
+        }
+        else {
+            return new Scissors();
+        }
     }
 
     private int checkWinner(GameShape player, GameShape computer) {
@@ -57,7 +65,15 @@ public class MainFrame extends JFrame implements ActionListener {
 
         // TODO: написати логіку методу
 
-        return 0;
+        if ((player instanceof Rock && computer instanceof Rock) || (player instanceof Paper && computer instanceof Paper) || (player instanceof Scissors && computer instanceof Scissors)){
+            return 0;
+        }
+        if ((player instanceof Rock && computer instanceof Scissors) || (player instanceof Paper && computer instanceof Rock) || (player instanceof Scissors && computer instanceof Paper)){
+            return 1;
+        }
+        else {
+            return -1;
+        }
     }
 
     @Override
@@ -69,13 +85,16 @@ public class MainFrame extends JFrame implements ActionListener {
         // Визначаємо, на яку кнопку натиснув гравець
         switch (e.getActionCommand()) {
             case "rock":
+                playerShape = new Rock();
                 // присвоїти playerShape об'єкт відповідного класу
                 break;
             case "paper":
                 // присвоїти playerShape об'єкт відповідного класу
+                playerShape = new Paper();
                 break;
             case "scissors":
                 // присвоїти playerShape об'єкт відповідного класу
+                playerShape = new Scissors();
                 break;
         }
 
